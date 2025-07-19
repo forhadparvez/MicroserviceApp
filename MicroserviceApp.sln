@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "src\IdentityService\IdentityService.csproj", "{B67ABBA2-3846-4853-9284-F0F1FDA2BC47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeService", "src\EmployeeService\EmployeeService.csproj", "{CF5E8862-31C5-47A5-839C-2CE28D71682C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{B67ABBA2-3846-4853-9284-F0F1FDA2BC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B67ABBA2-3846-4853-9284-F0F1FDA2BC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B67ABBA2-3846-4853-9284-F0F1FDA2BC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5E8862-31C5-47A5-839C-2CE28D71682C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5E8862-31C5-47A5-839C-2CE28D71682C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5E8862-31C5-47A5-839C-2CE28D71682C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5E8862-31C5-47A5-839C-2CE28D71682C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B67ABBA2-3846-4853-9284-F0F1FDA2BC47} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{CF5E8862-31C5-47A5-839C-2CE28D71682C} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
 	EndGlobalSection
 EndGlobal
