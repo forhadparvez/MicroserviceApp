@@ -10,7 +10,11 @@
         }
       ],
       "UpstreamPathTemplate": "/identity/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/employees/{everything}",
@@ -22,7 +26,11 @@
         }
       ],
       "UpstreamPathTemplate": "/employees/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/attendances/{everything}",
@@ -34,7 +42,11 @@
         }
       ],
       "UpstreamPathTemplate": "/attendances/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

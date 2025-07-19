@@ -1,9 +1,11 @@
 using AttendanceService.Models;
 using AttendanceService.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AttendanceService.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class AttendanceController : ControllerBase

@@ -1,5 +1,8 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
 // Add services
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Authority = null; // If using local validation
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = "your-app",
+            ValidAudience = "your-app",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey"))
+        };
+    });
+
+// builder.Services.AddOcelot()
+//     .AddDelegatingHandler<AuthenticationDelegatingHandler>(true); // Optional for custom logic
+
 builder.Services.AddOcelot();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
