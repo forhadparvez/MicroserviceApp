@@ -25,7 +25,7 @@ public class Repository<T> : IRepository<T> where T : class
             foreach (var include in includes)
                 query = query.Include(include);
         }
-
+        query = ApplyDeleteFilter(query);
         return await query.ToListAsync();
     }
 
@@ -38,7 +38,7 @@ public class Repository<T> : IRepository<T> where T : class
             foreach (var include in includes)
                 query = query.Include(include);
         }
-
+        query = ApplyDeleteFilter(query);
         // Assuming entity has a key named "Id" of type int
         return await query.FirstOrDefaultAsync(e => EF.Property<long>(e, "Id") == id);
     }
@@ -52,7 +52,7 @@ public class Repository<T> : IRepository<T> where T : class
             foreach (var include in includes)
                 query = query.Include(include);
         }
-
+        query = ApplyDeleteFilter(query);
         return await query.ToListAsync();
     }
 
@@ -65,14 +65,14 @@ public class Repository<T> : IRepository<T> where T : class
             foreach (var include in includes)
                 query = query.Include(include);
         }
-
+        query = ApplyDeleteFilter(query);
         return await query.SingleOrDefaultAsync();
     }
 
     public async Task AddAsync(T entity)
     {
         await _dbSet.AddAsync(entity);
-        
+
     }
 
     public async Task AddRangeAsync(IEnumerable<T> entities)
@@ -101,11 +101,33 @@ public class Repository<T> : IRepository<T> where T : class
                 prop.SetValue(entity, true);
                 _dbSet.Update(entity);
             }
-        }        
+        }
     }
 
     public void RemoveRange(IEnumerable<T> entities)
     {
         _dbSet.RemoveRange(entities);
     }
+
+    private IQueryable<T> ApplyDeleteFilter(IQueryable<T> query)
+    {
+        var prop = typeof(T).GetProperty("IsDeleted");
+        if (prop != null && prop.PropertyType == typeof(bool))
+        {
+            var parameter = Expression.Parameter(typeof(T), "e");
+            var propertyAccess = Expression.Call(
+                typeof(EF),
+                nameof(EF.Property),
+                new Type[] { typeof(bool) },
+                parameter,
+                Expression.Constant("IsDeleted")
+            );
+            var condition = Expression.Equal(propertyAccess, Expression.Constant(false));  // IsDeleted == false
+            var lambda = Expression.Lambda<Func<T, bool>>(condition, parameter);
+            query = query.Where(lambda);
+        }
+
+        return query;
+    }
+
 }
