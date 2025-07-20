@@ -1,0 +1,8 @@
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.csproj.AssemblyReference.cache
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.GeneratedMSBuildEditorConfig.editorconfig
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.AssemblyInfoInputs.cache
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.AssemblyInfo.cs
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.csproj.CoreCompileInputs.cache
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.MvcApplicationPartsAssemblyInfo.cs
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.MvcApplicationPartsAssemblyInfo.cache
+/home/spider/Desktop/MicroserviceApp/src/EmployeeService/obj/Debug/net8.0/EmployeeService.sourcelink.json

@@ -1,5 +1,6 @@
 using EmployeeService.Data;
 using EmployeeService.Repositories;
+using EmployeeService.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EmployeeDbContext>(options =>
     options.UseSqlite("Data Source=employee.db"));
 
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+// only need to add services, no need to add repositories
+builder.Services.AddScoped<IEmployeeService, EmployeeService.Services.EmployeeService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
